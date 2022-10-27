@@ -1,0 +1,31 @@
+data = data.replace({:2},0)
+---
+---
+
+**Datos: **
+---
+---
+
+, squeeze=False)
+axli = axes.flatten()
+fig.subplots_adjust(top=0.9)
+---
+---
+
+fig, ax = plt.subplots(figsize=(15, 5))
+g = sns.countplot(ax=ax, data = data, x ='NVCBP11D')
+
+for bars in ax.containers:
+    ax.bar_label(bars, fmt='%.0f', fontsize=9)
+            
+ax.set_title('Pregunta NVCBP11D \n ¿Cuenta con el servicio público de Recolección de Basuras?')
+ax.set_xticklabels(['No','Si'])
+
+plt.grid(alpha = 0.2, axis = 'y')
+plt.show()
+---
+---
+
+plt.axvline(data['NHCDP11'].mean(), color='y', linestyle='dashed', linewidth=1, label = f'Media = ${data["NHCDP11"].mean():,.2f}')
+plt.axvline(data['NHCDP11'].median(), color='c', linestyle='dashed', linewidth=1, label = f'Mediana = ${data["NHCDP11"].median():,.2f}')
+plt.xticks(range(0,3000000,250000),[f'{(i / 1000000):.2f} M' for i in range(0,3000000,250000)], fontsize=7)
